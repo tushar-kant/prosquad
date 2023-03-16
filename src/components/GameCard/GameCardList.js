@@ -3,10 +3,10 @@ import Card from "./Card"
 const GameCard = () => {
     return (
         <div className="flex flex-col lg:flex-row ml-20 mt-10 lg:justify-evenly">
-            <Card title="Valorant" img="https://res.cloudinary.com/dhtoottz0/image/upload/v1643562316/witcher_c6x4xa.jpg" />
-            <Card title="FreeFire" img="https://res.cloudinary.com/dhtoottz0/image/upload/v1643562306/ds3_mtntnz.jpg" />
-            <Card title="BGMI" img="https://res.cloudinary.com/dhtoottz0/image/upload/v1643562304/Cyberpunk_2077_usabqh.jpg" />
-            <Card title="Mobile Legends" img="https://res.cloudinary.com/dhtoottz0/image/upload/v1643562388/image_ir1vlc.jpg" />
+            <Card title="Clash Of Clan" img="https://wallpapercave.com/dwp1x/wc1808411.jpg" />
+            <Card title="FreeFire" img="https://wallpaperaccess.com/thumb/2411251.jpg" />
+            <Card title="BGMI" img="https://wallpaperaccess.com/thumb/6163542.jpg" />
+            <Card title="Mobile Legends" img="https://w0.peakpx.com/wallpaper/330/187/HD-wallpaper-blue-mobile-legends-alucard-bruno-gusion-mobile-legends-tigreal-thumbnail.jpg" />
         </div>
     )
 }
