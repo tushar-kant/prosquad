@@ -14,35 +14,34 @@ import Profile from './components/Profile/Profile';
 import Loader from "./Loader";
 
 const App = () => {
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    let timer = setTimeout(() => setLoaded(true), 2000);
+  const [ loaded, setLoaded ] = useState( false );
+  useEffect( () => {
+    let timer = setTimeout( () => setLoaded( true ), 2000 );
     return () => {
-      clearTimeout(timer);
+      clearTimeout( timer );
     };
-  }, []);
+  }, [] );
   return (
     <div className="app">
       {/* using a ternary operator to determine which component to display
     based on the loaded state. If loaded is false the Loader is rendered */}
-      {!loaded ? (
+      { !loaded ? (
         <Loader />
       ) : (
         <><NavBar /><Routes>
-            <Route path="/" element={<HeroBanner />} />
-            <Route path="/games" element={<GameCardList />} />
-            <Route path="/tournament" element={<TournamentCard />} />
-            <Route path="/bgmifixture" element={<BgmiFixture />} />
-            <Route path="/cocfixture" element={<CocFixture />} />
-            <Route path="/mlfixture" element={<MlFixture />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/setting" element={<Setting />} />
+          <Route path="/" element={ <HeroBanner /> } />
+          <Route path="/games" element={ <GameCardList /> } />
+          <Route path="/tournament" element={ <TournamentCard /> } />
+          <Route path="/bgmifixture" element={ <BgmiFixture /> } />
+          <Route path="/cocfixture" element={ <CocFixture /> } />
+          <Route path="/mlfixture" element={ <MlFixture /> } />
+          <Route path="/login" element={ <Login /> } />
+          <Route path="/register" element={ <Register /> } />
+          <Route path="/setting" element={ <Setting /> } />
 
-            <Route path="/profile" element={<Profile />} />
-
-          </Routes></>
-      )}
+          <Route path="/profile" element={ <Profile /> } />
+        </Routes></>
+      ) }
     </div>
 
 

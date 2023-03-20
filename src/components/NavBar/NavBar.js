@@ -12,26 +12,26 @@ const navigation = [
     { name: 'Fixture', href: '/fixture', current: false },
 ]
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+function classNames ( ...classes ) {
+    return classes.filter( Boolean ).join( ' ' )
 }
 
-export default function Example() {
+export default function Example () {
     return (
         <Disclosure as="nav" className="bg-gray-800">
-            {({ open }) => (
+            { ( { open } ) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                                {/* Mobile menu button*/}
+                                {/* Mobile menu button*/ }
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="sr-only">Open main menu</span>
-                                    {open ? (
+                                    { open ? (
                                         <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                                     ) : (
                                         <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                                    )}
+                                    ) }
                                 </Disclosure.Button>
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -39,32 +39,31 @@ export default function Example() {
                                     <div className="flex flex-shrink-0 items-center">
                                         <img
                                             className="block h-10 w-auto lg:hidden mr-2 lg:mr-2"
-                                            src={logo}
+                                            src={ logo }
                                             alt="ProSquad"
                                         />
                                         <img
                                             className="hidden h-10 w-auto lg:block mr-2 lg:mr-2"
-                                            src={logo}
+                                            src={ logo }
                                             alt="ProSquad"
                                         />
-                                        <p className='text-2xl text-zinc-50 font-semibold items-center'>Pro Squad</p>
                                     </div>
                                 </Link>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4">
-                                        {navigation.map((item) => (
+                                        { navigation.map( ( item ) => (
                                             <Link
-                                                key={item.name}
-                                                to={item.href}
-                                                className={classNames(
+                                                key={ item.name }
+                                                to={ item.href }
+                                                className={ classNames(
                                                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'rounded-md px-3 py-2 text-sm font-medium'
-                                                )}
-                                                aria-current={item.current ? 'page' : undefined}
+                                                ) }
+                                                aria-current={ item.current ? 'page' : undefined }
                                             >
-                                                {item.name}
+                                                { item.name }
                                             </Link>
-                                        ))}
+                                        ) ) }
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +76,7 @@ export default function Example() {
                                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                                 </button>
 
-                                {/* Profile dropdown */}
+                                {/* Profile dropdown */ }
                                 <Menu as="div" className="relative ml-3">
                                     <div>
                                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -90,7 +89,7 @@ export default function Example() {
                                         </Menu.Button>
                                     </div>
                                     <Transition
-                                        as={Fragment}
+                                        as={ Fragment }
                                         enter="transition ease-out duration-100"
                                         enterFrom="transform opacity-0 scale-95"
                                         enterTo="transform opacity-100 scale-100"
@@ -100,48 +99,48 @@ export default function Example() {
                                     >
                                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             <Menu.Item>
-                                                {({ active }) => (
+                                                { ( { active } ) => (
                                                     <Link to="/profile"
 
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        className={ classNames( active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700' ) }
                                                     >
                                                         Your Profile
                                                     </Link>
-                                                )}
+                                                ) }
                                             </Menu.Item>
                                             <Menu.Item>
-                                                {({ active }) => (
+                                                { ( { active } ) => (
                                                     <Link to="/setting"
 
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        className={ classNames( active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700' ) }
                                                     >
                                                         Settings
                                                     </Link>
-                                                )}
+                                                ) }
                                             </Menu.Item>
                                             <Menu.Item>
-                                                {({ active }) => (
+                                                { ( { active } ) => (
                                                     <Link to="/login"
 
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        className={ classNames( active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700' ) }
                                                     >
 
                                                         Login
 
                                                     </Link>
-                                                )}
+                                                ) }
                                             </Menu.Item>
                                             <Menu.Item>
-                                                {({ active }) => (
+                                                { ( { active } ) => (
                                                     <Link to="/register"
 
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                        className={ classNames( active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700' ) }
                                                     >
 
                                                         register
 
                                                     </Link>
-                                                )}
+                                                ) }
                                             </Menu.Item>
                                         </Menu.Items>
                                     </Transition>
@@ -152,24 +151,24 @@ export default function Example() {
 
                     <Disclosure.Panel className="sm:hidden">
                         <div className="space-y-1 px-2 pt-2 pb-3">
-                            {navigation.map((item) => (
+                            { navigation.map( ( item ) => (
                                 <Disclosure.Button
-                                    key={item.name}
+                                    key={ item.name }
                                     as="a"
-                                    href={item.href}
-                                    className={classNames(
+                                    href={ item.href }
+                                    className={ classNames(
                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                         'block rounded-md px-3 py-2 text-base font-medium'
-                                    )}
-                                    aria-current={item.current ? 'page' : undefined}
+                                    ) }
+                                    aria-current={ item.current ? 'page' : undefined }
                                 >
-                                    {item.name}
+                                    { item.name }
                                 </Disclosure.Button>
-                            ))}
+                            ) ) }
                         </div>
                     </Disclosure.Panel>
                 </>
-            )}
+            ) }
         </Disclosure>
     )
 }
