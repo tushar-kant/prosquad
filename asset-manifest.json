@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/prosquad/static/css/main.cd57318a.css",
+    "main.js": "/prosquad/static/js/main.645b2601.js",
+    "static/media/banner.jpg": "/prosquad/static/media/banner.93feb6470fa95ef0142f.jpg",
+    "static/media/coclogo.png": "/prosquad/static/media/coclogo.46663e58061f083adda6.png",
+    "static/media/logox.png": "/prosquad/static/media/logox.5da6d1bd4e41899d8dd7.png",
+    "static/media/mllogo.png": "/prosquad/static/media/mllogo.a3b86b056ebc54601a36.png",
+    "index.html": "/prosquad/index.html",
+    "main.cd57318a.css.map": "/prosquad/static/css/main.cd57318a.css.map",
+    "main.645b2601.js.map": "/prosquad/static/js/main.645b2601.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd57318a.css",
+    "static/js/main.645b2601.js"
+  ]
+}
