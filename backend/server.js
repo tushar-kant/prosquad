@@ -1,12 +1,24 @@
 const express = require( 'express' );
+const tours = require( './data/tours' )
+const dotenv = require( 'dotenv' )
 
 const app = express()
+dotenv.config();
 
-
-const PORT = process.env.PORT || 5000;
 
 app.get( "/", ( req, res ) => {
     res.send( "API is Running" );
 } );
 
-app.listen( PORT, console.log( `Server running in ${process.env.NODE_ENV} mode on port ${PORT}..` ) );
+app.get( '/api/tours', ( req, res ) => {
+    res.json( tours )
+} )
+
+app.get( "/api/tours/:id", ( req, res ) => {
+    const tour = tours.find( ( t ) => t._id === req.params.id )
+    res.send( tour )
+} );
+
+const PORT = process.env.PORT || 5000;
+
+app.listen( 5000, console.log( `Server started on PORT ${PORT}` ) )

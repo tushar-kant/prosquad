@@ -1,6 +1,19 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Card from './Card'
 const TournamentCard = () => {
+
+    const [ tours, setTours ] = useState( [] )
+
+    const fetchTour = async () => {
+        const { data } = await axios.get( '/api/tours' );
+
+        setTours( data );
+    }
+
+    useEffect( () => {
+        fetchTour()
+    }, [] )
     return (
         <div className="flex flex-wrap mt-6 flex-row justify-center">
             <div className="flex flex-row justify-center w-full md:w-1/2 lg:w-1/3 xl:w-1/3 p-4">
