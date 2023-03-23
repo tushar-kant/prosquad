@@ -22,24 +22,27 @@ const getAllUsers = asyncHandler( async ( req, res ) => {
 // @route POST /users
 // @access Private
 const createNewUser = asyncHandler( async ( req, res ) => {
-    const { username, password, roles } = req.body
+    const { username, email, password, ConfirmPassword } = req.body
 
     // Confirm data
-    if ( !username || !password || !Array.isArray( roles ) || !roles.length ) {
+    if ( !username || !password || !email || !ConfirmPassword ) {
         return res.status( 400 ).json( { message: 'All fields are required' } )
+    }
+    if ( password != ConfirmPassword ) {
+        return res.status( 400 ).json( { message: 'Password did not match' } )
     }
 
     // Check for duplicate username
-    const duplicate = await User.findOne( { username } ).lean().exec()
+    const duplicate = await User.findOne( { email } ).lean().exec()
 
     if ( duplicate ) {
-        return res.status( 409 ).json( { message: 'Duplicate username' } )
+        return res.status( 409 ).json( { message: 'Duplicate email' } )
     }
 
     // Hash password 
     const hashedPwd = await bcrypt.hash( password, 10 ) // salt rounds
 
-    const userObject = { username, "password": hashedPwd, roles }
+    const userObject = { username, email, "password": hashedPwd, ConfirmPassword }
 
     // Create and store new user 
     const user = await User.create( userObject )
@@ -55,10 +58,10 @@ const createNewUser = asyncHandler( async ( req, res ) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler( async ( req, res ) => {
-    const { id, username, roles, active, password } = req.body
+    const { id, username, email, password, ConfirmPassword } = req.body
 
     // Confirm data 
-    if ( !id || !username || !Array.isArray( roles ) || !roles.length || typeof active !== 'boolean' ) {
+    if ( !username || !password || !email || !ConfirmPassword ) {
         return res.status( 400 ).json( { message: 'All fields except password are required' } )
     }
 
@@ -78,8 +81,7 @@ const updateUser = asyncHandler( async ( req, res ) => {
     }
 
     user.username = username
-    user.roles = roles
-    user.active = active
+    user.email = email
 
     if ( password ) {
         // Hash password 
