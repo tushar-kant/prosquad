@@ -15,16 +15,10 @@ const Login = () => {
                         <input type="password" name="" required="" />
                         <label>Password</label>
                     </div>
-                    <a href="#">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        SignIN
-                    </a>
+                    <button type='submit'>Sign in</button>
                 </form>
             </div>
-            
+
         </>
     )
 }
