@@ -2,6 +2,7 @@ const User = require( '../models/UserModel' )
 const Note = require( '../models/NoteModel' )
 const asyncHandler = require( 'express-async-handler' )
 const bcrypt = require( 'bcrypt' )
+const jwt = require( 'jsonwebtoken' )
 
 // @desc Get all users
 // @route GET /users
@@ -124,9 +125,40 @@ const deleteUser = asyncHandler( async ( req, res ) => {
     res.json( reply )
 } )
 
+const loginUser = asyncHandler( async ( req, res ) => {
+    const { email, password } = req.body;
+
+    try {
+        // Find user by email
+        const user = await User.findOne( { email } );
+
+        if ( !user ) {
+            return res.status( 404 ).json( { message: 'User not found' } );
+        }
+
+        // Check password
+        const isMatch = await bcrypt.compare( password, user.password );
+
+        if ( !isMatch ) {
+            return res.status( 400 ).json( { message: 'Invalid credentials' } );
+        }
+
+        // Generate JWT token
+        const token = jwt.sign( { userId: user._id }, process.env.JWT_SECRET );
+
+        // Send token in response
+        res.json( { token } );
+    } catch ( err ) {
+        console.error( err );
+        res.status( 500 ).json( { message: 'Server error' } );
+    }
+} )
+
+
 module.exports = {
     getAllUsers,
     createNewUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    loginUser
 }
