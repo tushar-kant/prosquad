@@ -43,9 +43,9 @@ const Card = ( { img, title, badge } ) => {
             <div className='relative'>
                 <img className="w-full " src={ img } alt="gamelogo" />
                 <div className=" absolute top-4 left-2 pt-[0.1em] pd-[0.1em] pb-[0.1rem] text-xs px-3 bg-red-200 text-red-800 rounded-full font-extrabold">{ badge }</div>
-                <div className=" absolute top-4 right-2 pt-[0.1em] pd-[0.1em] pb-[0.1rem] text-xs px-3 bg-red-200 text-red-800 rounded-full font-extrabold">{hours.toString().padStart(2, "0")}:
-        {minutes.toString().padStart(2, "0")}:
-        {seconds.toString().padStart(2, "0")}</div>
+                <div className=" absolute top-4 right-2 pt-[0.1em] pd-[0.1em] pb-[0.1rem] text-xs px-3 bg-red-200 text-red-800 rounded-full font-extrabold">{ hours.toString().padStart( 2, "0" ) }:
+                    { minutes.toString().padStart( 2, "0" ) }:
+                    { seconds.toString().padStart( 2, "0" ) }</div>
 
             </div>
             <div className="px-6 py-4">

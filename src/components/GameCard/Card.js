@@ -1,15 +1,7 @@
 import React from 'react'
-// import { useNavigate } from 'react-router-dom';
 import './Card.css'
 
 const Card = ( { img, title } ) => {
-
-    // let naviagte = useNavigate();
-
-    // const handleClick = () => {
-    //     localStorage.setItem( 'filterTitle', title );
-    //     naviagte( '/filtered-page' );
-    // };
 
     return (
         <section className="library">

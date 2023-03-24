@@ -2,7 +2,7 @@ import Card from "./Card"
 
 const GameCard = () => {
     return (
-        <div className="flex flex-col lg:flex-row ml-20 mt-10 lg:justify-evenly">
+        <div className="flex flex-wrap justify-center gap-4 md:justify-between lg:justify-evenly mt-10">
             <Card title="Clash Of Clan" img="https://wallpapercave.com/dwp1x/wc1808411.jpg" />
             <Card title="FreeFire" img="https://wallpaperaccess.com/thumb/2411251.jpg" />
             <Card title="BGMI" img="https://wallpaperaccess.com/thumb/6163542.jpg" />
