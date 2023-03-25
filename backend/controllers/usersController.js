@@ -1,5 +1,5 @@
 const User = require( '../models/UserModel' )
-const Note = require( '../models/NoteModel' )
+const Tour = require( '../models/TourModel' )
 const asyncHandler = require( 'express-async-handler' )
 const bcrypt = require( 'bcrypt' )
 const jwt = require( 'jsonwebtoken' )
@@ -29,7 +29,7 @@ const createNewUser = asyncHandler( async ( req, res ) => {
     if ( !username || !password || !email || !ConfirmPassword ) {
         return res.status( 400 ).json( { message: 'All fields are required' } )
     }
-    if ( password != ConfirmPassword ) {
+    if ( password !== ConfirmPassword ) {
         return res.status( 400 ).json( { message: 'Password did not match' } )
     }
 
@@ -106,8 +106,8 @@ const deleteUser = asyncHandler( async ( req, res ) => {
     }
 
     // Does the user still have assigned notes?
-    const note = await Note.findOne( { user: id } ).lean().exec()
-    if ( note ) {
+    const tour = await Tour.findOne( { user: id } ).lean().exec()
+    if ( tour ) {
         return res.status( 400 ).json( { message: 'User has assigned notes' } )
     }
 
